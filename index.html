@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+   maximum-scale=1.0, user-scalable=0, shrink-to-fit=no, viewport-fit=cover">
+
+    <script src="./fondz/iconfont.js"></script><!-- 第一步：引入项目下面生成的 symbol 代码： -->
+
+    <link rel="stylesheet" href="./css/pub.css"><!-- 引入全局css -->
+    <link rel="stylesheet" href="./css/Bottom_bar.css"><!-- 引入底部栏 -->
+    <link rel="stylesheet" href="./css/UpNavigation.css"><!-- 引入上导航 -->
+    <link rel="stylesheet" href="./css/main.css"><!-- 引入每一个微博 -->
+    <title>微博主页</title>
+
+    <style>
+        .icon {
+            /* 第二步：加入通用 CSS 代码（引入一次就行）： */
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            /* margin-bottom: 100px; */
+        }
+
+        /************************上导航条****************************/
+        .up-main p {
+            font-size: 20px;
+            margin: 6px auto;
+            flex-grow: 1;
+            white-space: nowrap;
+
+        }
+
+        .up-main li:nth-child(1) {
+            text-align: left;
+            padding-left: 1%;
+        }
+
+        .up-main li:nth-child(2) {
+            padding-right: 1%;
+            text-align: right;
+            flex-grow: 1;
+
+        }
+
+        .up-main li:nth-child(2) p {
+            color: #000;
+            font-weight: bold;
+        }
+
+        .up-main li:nth-child(3) {
+            padding-left: 1%;
+            text-align: left;
+            flex-grow: 0.7;
+        }
+
+        .up-main li:nth-child(3) p {
+            color: rgb(124, 124, 124);
+        }
+
+        .up-main li:nth-child(4) {
+            text-align: right;
+        }
+
+        .up-main li:nth-child(5) {
+            padding-right: 1%;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="up-main">
+        <ul>
+            <li>
+                <a href="#">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-yanchurili"></use>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="./index.html">
+                    <div>
+                        <p>关注</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <p>推荐</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-hongbao"></use>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-tianjiatianchong"></use>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </header>
+
+    <main class="content">
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061616942.jpg" alt="">
+                </a>
+                <a class="p-name" href="#">
+                    <p>释小龙Ashton</p>
+                    <div class="time" onload="time()"></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">秋天空气的味道清新上瘾</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061618386.jpg" alt="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061618813.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061620140.jpg" alt="">
+                </a>
+                <a class="p-name" href="#">
+                    <p>阿瘾是条咸鱼</p>
+                    <div class="time" onload="time()"></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">DC蝙蝠侠2已经推进</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061454998.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061449459.jpg">
+                </a>
+                <a class="p-name" href="#">
+                    <p>波仔bznb</p>
+                    <div class="time" onload=time()></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">黑亚当 Black Adam (2022)抢先版</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061622887.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061616942.jpg" alt="">
+                </a>
+                <a class="p-name" href="#">
+                    <p>释小龙Ashton</p>
+                    <div class="time" onload="time()"></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">秋天空气的味道清新上瘾</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061618386.jpg" alt="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061618813.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061620140.jpg" alt="">
+                </a>
+                <a class="p-name" href="#">
+                    <p>阿瘾是条咸鱼</p>
+                    <div class="time" onload="time()"></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">DC蝙蝠侠2已经推进</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061454998.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061449459.jpg">
+                </a>
+                <a class="p-name" href="#">
+                    <p>波仔bznb</p>
+                    <div class="time" onload=time()></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">黑亚当 Black Adam (2022)抢先版</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061622887.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+    </main>
+    <nav class="main">
+        <ul class="main2">
+        </ul>
+    </nav>
+    <!-- ***************************JavaScript**************************** -->
+    <script>
+        // <!-- ***************************时间**************************** -->
+
+        function time() {
+            var now = new Date(84848484848484);
+            var before = new Date();
+            var month = now.getMonth(); //得到月份
+            var date = now.getDate(); //得到日期
+            var hour = now.getHours(); //得到小时
+            var minu = now.getMinutes(); //得到分钟
+
+            month = month + 1;
+            date = date + 1;
+
+            if (month < 10) month = "0" + month;
+            if (date < 10) date = "0" + date;
+            if (hour < 10) hour = "0" + hour;
+            if (minu < 10) minu = "0" + minu;
+            var currentTime = month + "-" + date + "   " + hour + ":" + minu;
+            var timeArr = document.querySelectorAll(".time");
+            for (let i = 0; i < timeArr.length; i++) {
+                timeArr[i].innerHTML = currentTime;
+            }
+            //console.log(timeArr);
+        }
+        setInterval("time()", 1000);
+        // <!-- ***************************下导航**************************** -->
+        window.onload = function () {
+            var url = "http://rap2api.taobao.org/app/mock/308020/index"
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("GET", url, true);//get请求，url说明是yrl,true是异步
+            xhr.send();
+
+            xhr.onreadystatechange = function () {//监听成功
+                if (xhr.readyState === 4 && xhr.status === 200) {//状态码为200
+                    console.log(xhr.responseText);
+                    var jarr = JSON.parse(xhr.responseText);
+                    //从服务器端获得数据在网页显示 JSON.parse()服务器端数据变成json
+                    insert(jarr);//insert这个名字是自己起名的
+                }
+            }
+            function insert(jarr) {
+                var alist = document.querySelector(".main2");//获取上面的class
+                jarr.forEach((v, i) => {
+                    var nli = document.createElement("li");//创建一个元素
+                    nli.innerHTML = `
+            <li>
+            <a href="${v.page}">
+                <div>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="${v.Symbol}"></use>
+                    </svg>
+                </div>
+                <p>${v.pageName}</p>
+            </a>
+        </li>`;
+                    alist.appendChild(nli);//末尾加一个li
+                });
+            }
+        }
+
+    </script>
+</body>
+
+</html>
