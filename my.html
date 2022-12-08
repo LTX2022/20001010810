@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+   maximum-scale=1.0, user-scalable=0, shrink-to-fit=no, viewport-fit=cover">
+
+    <script src="./fondz/iconfont.js"></script><!-- 第一步：引入项目下面生成的 symbol 代码： -->
+
+    <link rel="stylesheet" href="./css/pub.css"><!-- 引入全局css -->
+    <link rel="stylesheet" href="./css/Bottom_bar.css"><!-- 引入底部栏 -->
+    <link rel="stylesheet" href="./css/UpNavigation.css"><!-- 引入上导航 -->
+
+    <title>超话页面</title>
+
+    <style>
+        .icon {
+            /* 第二步：加入通用 CSS 代码（引入一次就行）： */
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            margin-bottom: 100px;
+
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            margin-bottom: 60px;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: table;
+            /* table 让块级元素在一行显示*/
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        /***********************顶部栏***********************/
+
+        .up-main li:nth-child(1) {
+            padding-right: 1%;
+            text-align: right;
+            flex-grow: 1;
+        }
+
+        .up-main li:nth-child(2) {
+            padding-right: 1%;
+            text-align: right;
+        }
+
+        .up-main li:nth-child(3) {
+            padding-right: 1%;
+            text-align: right;
+        }
+
+        .up-main li:nth-child(4) {
+            padding-right: 1%;
+            text-align: right;
+        }
+
+        /***********************我的超话************************/
+        .my-super-topic {
+            background-color: rgb(251, 238, 223);
+            border-radius: 20px/20px;
+            margin: 0px 10px;
+            position: absolute;
+
+        }
+
+        /* <!-- -----------------超话标题--------------------- --> */
+        .supertopic-label {
+            margin: 10px 0 0 15px;
+            color: rgb(186, 110, 67);
+            font-size: 18px;
+            width: 50%;
+            white-space: nowrap;
+        }
+
+        .sign-in {
+
+            white-space: nowrap;
+            color: rgb(186, 110, 67);
+            margin: 10px 10px 0 0;
+            display: block;
+            position: relative;
+            left: 130px;
+            /* width: 50px; */
+        }
+
+        .my-super-topic-up {
+            width: 50%;
+        }
+
+        /* <!-- -----------------超话内容------------------ --> */
+        .topics ul {
+            width: 100%;
+            white-space: nowrap;
+        }
+
+        .topics ul li {
+            margin: 10px 13px 0px;
+            float: left;
+            width: 11.5%;
+            height: 100px;
+            text-align: center;
+            display: flex;
+        }
+
+        .topics ul li div {
+            margin: 0 auto;
+            width: 62px;
+            border-radius: 10px/10px;
+        }
+
+        .topics ul li img {
+            width: 100%;
+            border-radius: 10px/10px;
+        }
+
+        .second {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .clearfix li p {
+            display: flex;
+            justify-content: center;
+        }
+
+        /*******************************聊天内容框******************************/
+        .mains {
+            list-style: none;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .tlist li {
+            display: flex;
+            border-bottom: 1px dotted #ccc;
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+        }
+
+        .tlist img {
+            width: 70px;
+            border-radius: 50%;
+        }
+
+        .tlist .txt {
+            margin-left: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-grow: 1;
+            margin-right: 40px;
+            white-space: nowrap;
+            /* 文字溢出隐藏 */
+            text-overflow: ellipsis;
+            font-size: .5rem;
+        }
+
+        .tlist .txt h3 {
+            font-size: 20px;
+            line-height: 40px;
+            width: 100%;
+        }
+
+        .tlist .txt span {
+            font-size: 12px;
+            line-height: 22px;
+            color: #999;
+        }
+
+        .tlist .txt .neirong {
+            white-space: nowrap;
+            /* 文字溢出隐藏 */
+            text-overflow: ellipsis;
+            font-size: .5rem;
+            width: 100%;
+        }
+
+        .tlist .tim {
+            margin-right: 10px;
+            line-height: 40px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .cotect-time {
+            font-size: 12px;
+            line-height: 22px;
+            color: #999;
+        }
+
+        /***************************个人信息*******************************/
+        .my {
+            list-style: none;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .my_header {
+            margin-top: 50px;
+            margin-left: 20px;
+            margin-right: 20px;
+            display: flex;
+        }
+
+        .my_header img {
+            width: 70px;
+            border-radius: 50%;
+        }
+
+        .my-name {
+            margin-left: 8px;
+            white-space: nowrap;
+            /* 文字溢出隐藏 */
+            text-overflow: ellipsis;
+        }
+
+        .my-name h3 {
+            line-height: 30px;
+            margin-top: 9px;
+            width: 100%;
+        }
+
+        .my-name span {
+            font-size: 9px;
+            font-weight: bolder;
+            color: rgb(116, 116, 116);
+        }
+
+        /* *******************会员广告******************************* */
+        .vip-ad {
+            background: radial-gradient(#eee, rgb(254, 217, 143));
+            margin: 0px 10px 0px;
+            border-radius: 15px 15px 0px 0px;
+            display: flex;
+        }
+
+        .vip-name {
+            margin: 10px;
+        }
+
+        .vip-name h3 {
+            font-size: 15px;
+            font-weight: bolder;
+            color: rgb(194, 105, 50);
+        }
+
+        .vip-name span {
+            font-size: 10px;
+            font-weight: lighter;
+            color: rgb(195, 119, 73);
+        }
+
+        .vip-big-gift {
+            justify-content: flex-end;
+            display: flex;
+            flex-grow: 1;
+            margin: 20px;
+            margin-top: 20px;
+            font-size: 10px;
+            color: rgb(195, 119, 73);
+        }
+
+        .vip-big-gift span {
+            border-radius: 50px 50px;
+            background-color: rgb(255, 252, 250);
+            padding: 6px;
+            color: rgb(195, 119, 73);
+            font-weight: bolder;
+        }
+
+        /* *******************会员广告******************************* */
+        .attention-people {
+            margin-top: 10px;
+        }
+
+        .attention-people ul {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .attention-people li {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .attention-mount {
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        .atention-title {
+            font-size: 10px;
+            font-weight: lighter;
+        }
+    </style>
+</head>
+<!-- /*****************************************************************/ -->
+
+<body>
+    <!-- ****************************顶部栏***************************** -->
+    <header class="up-main">
+        <ul>
+            <li>
+
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-tianjiahaoyou"></use>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-yduierweimasaomiao"></use>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-shezhi"></use>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </header>
+    <!-- /**************************底部栏********************************/ -->
+    <nav class="main">
+        <ul class="main2">
+        </ul>
+    </nav>
+    <!-- ***********************个人信息***************************** -->
+    <div class="my">
+        <div class="my_header">
+            <a href="#">
+                <img src="http://ltx-image.test.upcdn.net/202212061616942.jpg" alt="">
+            </a>
+            <div class="my-name">
+                <h3><a href="#">真实同学1</a></h3>
+                <a href="#"><span>简介:展无简介</span></a>
+            </div>
+        </div>
+    </div>
+    <!-- ************************会员广告**************** -->
+    <div class="vip-ad">
+        <div class="vip-name">
+            <a href="#">
+                <h3>会员尊享30多项特权</h3>
+            </a>
+            <a href="#"><span>S12战队气泡上新啦&gt;</span></a>
+        </div>
+        <div class="vip-big-gift">
+            <a href="#"><span>抽大奖</span></a>
+        </div>
+    </div>
+    <!-- **************************关注量******************** -->
+    <div class="attention-people">
+        <ul>
+            <li>
+                <a href="#">
+                    <div class="attention-mount">10</div>
+                    <div class="atention-title">微博</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="attention-mount">3</div>
+                    <div class="atention-title">视频</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="attention-mount">122</div>
+                    <div class="atention-title">关注</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="attention-mount">4</div>
+                    <div class="atention-title">粉丝</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- ***************************我的个人中心************************ -->
+    <div class="my-personal-center">
+        <ul>
+            <li><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-xiangce"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <div class="my-personal-center-title">我的相册</div>
+                </a>
+            </li>
+            <li><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-shoucang1"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <div class="my-personal-center-title">赞/收藏</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liulanjilu"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <div class="my-personal-center-title">浏览记录</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-fabudehuodong-caogaoxiang"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <div class="my-personal-center-title">草稿箱</div>
+                </a>
+            </li>
+            <li><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-qianbao1"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <div class="my-personal-center-title">我的钱包</div>
+                </a>
+            </li>
+            <li><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-wodedingdan"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <div class="my-personal-center-title">我的订单</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-bulb"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <div class="my-personal-center-title">创作中心</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-yanchurili"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <div class="my-personal-center-title">广告中心</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- ***************************用户中心****************************** -->
+    <div class="user-task-center">
+        <ul>
+            <li>
+                <a href="#">
+                    <div class="user-task-center-title">用户任务中心</div>
+                    <div class="user-task-center-content">今日待领700积分</div>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-hongbao1"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="user-task-center-title">微博渔场</div>
+                    <div class="user-task-center-content">小鱼陪你过假期</div>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-shipin_xiaoyu"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="user-task-center-title">每日签到</div>
+                    <div class="user-task-center-content">今日待领700积分</div>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-qiandao"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="user-task-center-title">高赞赏博文</div>
+                    <div class="user-task-center-content">用积分赞赏博主</div>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan1-copy"></use>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- **************************我的钱包******************************** -->
+    <div class="my-wallet">
+        <div class="my-wallet-title">
+            <span class="my-wallet-title-left">我的钱包</span>
+            <span class="my-wallet-title-right">查看详情&gt;</span>
+        </div>
+        <ul>
+            <li>
+                <div class="my-wallet-money-number">1.95<span>万</span></div>
+                <div class="my-wallet-money-type">可借额度</div>
+            </li>
+            <li>
+                <div class="my-wallet-money-number">1.72<span>%</span></div>
+                <div class="my-wallet-money-type">官方理财</div>
+            </li>
+            <li>
+                <div class="my-wallet-money-number">5<span>万</span></div>
+                <div class="my-wallet-money-type">信用卡</div>
+            </li>
+            <li>
+                <div class="my-wallet-money-number">0.00<span>元</span></div>
+                <div class="my-wallet-money-type">金融资产</div>
+            </li>
+        </ul>
+    </div>
+    <!-- ******************************超话****************************** -->
+    <div class="my-super-topic">
+        <!-- -----------------超话标题----------------- -->
+        <div class="my-super-topic-up">
+            <p class="supertopic-label fl"><a href="#">我的超话</a></p>
+            <span class="sign-in fr"><a href="#"></a>立刻签到 &gt;</a></span>
+        </div>
+        <!-- -----------------超话内容----------------- -->
+        <div class="topics">
+            <ul class="clearfix">
+                <li>
+                    <a href="#">
+                        <div>
+
+                            <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                        </div>
+                        <!-- 来源：https://console.upyun.com/services/ltx-image/filemanage/ -->
+                        <!-- <img src="https://pic8.58cdn.com.cn/nowater/webim/big/n_v22a7338bd292d446583e5b19305c18789.jpg" alt="my_super_ topic_1.JPG" title="my_super_ topic_1.JPG" /> -->
+                        <!-- 第二个来源：https://jiketuchuang.com/ -->
+                        <p class="first">玉林</p>
+                        <p class="second">日新帖3</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div>
+                            <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                        </div>
+                        <p class="first">玉林</p>
+                        <p class="second">日新帖3</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div>
+                            <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                        </div>
+                        <p class="first">玉林</p>
+                        <p class="second">日新帖3</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div>
+                            <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                        </div>
+                        <p class="first">玉林</p>
+                        <p class="second">日新帖3</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div>
+                            <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                        </div>
+                        <p class="first">玉林</p>
+                        <p class="second">日新帖3</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- ********************************推荐好友列表************************** -->
+    <div class="tlist">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                    <div class="txt">
+                        <h3><a href="#">标题</a></h3>
+                        <span class="neirong">内容</span>
+                    </div>
+                    <div class="contect-time">
+                        <span class="tim">2022-11-16</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                    <div class="txt">
+                        <h3><a href="#">标题</a></h3>
+                        <span class="neirong">内容</span>
+                    </div>
+                    <div class="contect-time">
+                        <span class="tim">2022-11-16</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                    <div class="txt">
+                        <h3><a href="#">标题</a></h3>
+                        <span class="neirong">内容</span>
+                    </div>
+                    <div class="contect-time">
+                        <span class="tim">2022-11-16</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                    <div class="txt">
+                        <h3><a href="#">标题</a></h3>
+                        <span class="neirong">内容</span>
+                    </div>
+                    <div class="contect-time">
+                        <span class="tim">2022-11-16</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                    <div class="txt">
+                        <h3><a href="#">标题</a></h3>
+                        <span class="neirong">内容</span>
+                    </div>
+                    <div class="contect-time">
+                        <span class="tim">2022-11-16</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                    <div class="txt">
+                        <h3><a href="#">标题</a></h3>
+                        <span class="neirong">内容</span>
+                    </div>
+                    <div class="contect-time">
+                        <span class="tim">2022-11-16</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                    <div class="txt">
+                        <h3><a href="#">标题</a></h3>
+                        <span class="neirong">内容</span>
+                    </div>
+                    <div class="contect-time">
+                        <span class="tim">2022-11-16</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                    <div class="txt">
+                        <h3><a href="#">标题</a></h3>
+                        <span class="neirong">内容</span>
+                    </div>
+                    <div class="contect-time">
+                        <span class="tim">2022-11-16</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- ***************************JavaScript**************************** -->
+    <!-- ----------主要的javascript---------- -->
+    <script>
+        var url = "http://rap2api.taobao.org/app/mock/308020/main2"
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("GET", url, true);//get请求，url说明是yrl,true是异步
+        xhr.send();
+
+        xhr.onreadystatechange = function () {//监听成功
+            if (xhr.readyState === 4 && xhr.status === 200) {//状态码为200
+                console.log(xhr.responseText);
+                var jarr = JSON.parse(xhr.responseText);
+                //从服务器端获得数据在网页显示 JSON.parse()服务器端数据变成json
+                insert(jarr);//insert这个名字是自己起名的
+            }
+        }
+        function insert(jarr) {
+            var alist = document.querySelector(".main2");//获取上面的class
+            jarr.forEach((v, i) => {
+                var nli = document.createElement("li");//创建一个元素
+                nli.innerHTML = `
+                <li>
+                <a href="${v.page}">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="${v.Symbol}"></use>
+                        </svg>
+                    </div>
+                    <p>${v.pageName}</p>
+                </a>
+            </li>`;
+                alist.appendChild(nli);//末尾加一个li
+            });
+        }
+    </script>
+</body>
+
+</html>

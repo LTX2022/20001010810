@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+   maximum-scale=1.0, user-scalable=0, shrink-to-fit=no, viewport-fit=cover">
+
+    <script src="./fondz/iconfont.js"></script><!-- 第一步：引入项目下面生成的 symbol 代码： -->
+
+    <link rel="stylesheet" href="./css/pub.css"><!-- 引入全局css -->
+    <link rel="stylesheet" href="./css/Bottom_bar.css"><!-- 引入底部栏 -->
+    <link rel="stylesheet" href="./swiper/swiper-bundle.min.css" /><!-- swiper -->
+    <link rel="stylesheet" href="./css/main.css"><!-- 引入每一个微博 -->
+    <title>超话页面</title>
+
+    <style>
+        /*********************上导航*****************************/
+
+
+        .up-main .top {
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 15px;
+            background-color: #eee;
+        }
+
+        /* -----------搜索栏----------- */
+
+        .up-main li:nth-child(1) {
+            margin-top: 10px;
+            height: 50px;
+            border-radius: 50px/50px;
+            background-color: rgb(211, 211, 211);
+            width: 100%;
+            line-height: 50px;
+        }
+
+        .up-main li:nth-child(1) div {
+            color: rgb(132, 131, 131);
+            height: 10px;
+        }
+
+        .up-main li:nth-child(1) div input {
+            background-color: rgb(211, 211, 211);
+            border: none;
+            flex-grow: 1;
+            outline: none;
+            line-height: 32px;
+        }
+
+        /* -----------各个词条----------- */
+        .up-main p {
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+        }
+
+        .up-main li:nth-child(2) div {
+            border-bottom: 2px solid rgb(255, 140, 46);
+        }
+
+        .up-main li {
+            width: 20%;
+            text-align: center;
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        /*******************热搜内容************************/
+
+        .hotsearch {
+            margin: 0px 10px;
+        }
+
+        .ht {
+            border-top: 1px solid #ddd;
+            line-height: 36px;
+            display: flex;
+        }
+
+        .ht h3 {
+            font-size: 16px;
+            flex-grow: 1;
+            padding-left: 8px;
+        }
+
+        .ht h3 svg {
+            color: rgb(255, 140, 46);
+        }
+
+        .hotsearch ul {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .hotsearch li:nth-child(2n-1) {
+            width: 50%;
+            box-sizing: border-box;
+            border-right: 2px solid #ddd;
+            padding: 0 12px;
+            padding-left: 12px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            overflow: hidden;
+            /* 下面这3个是文字溢出 */
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: .5rem;
+        }
+
+        .hotsearch li:nth-child(2n) {
+            width: 50%;
+            box-sizing: border-box;
+            padding: 0 12px;
+            padding-left: 12px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            overflow: hidden;
+            /* 下面这3个是文字溢出 */
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: .5rem;
+        }
+
+        .hotsearch li span {
+            color: rgb(255, 140, 46);
+            font-weight: bold;
+        }
+
+        .hotsearch a {
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* ************************广告*********************************** */
+        .cd {
+            flex-wrap: wrap;
+            font-size: 15px;
+            background-color: #fff;
+            padding: 10px;
+        }
+
+        .cd .C img {
+            border-radius: 10px/10px;
+            width: 100%;
+            height: 200px;
+        }
+
+        /* <!-- -----------------------------广告swiper-------------------------------- --> */
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #fff;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+        }
+
+        .swiper-button-next {
+            color: rgba(131, 131, 131, 0.5);
+        }
+
+        .swiper-button-prev {
+            color: rgba(131, 131, 131, 0.5);
+        }
+
+        .swiper-pagination {
+            color: rgba(131, 131, 131, 0.5);
+        }
+
+        /*---------------广告小标签------------------*/
+        .swiper-slide span {
+            position: fixed;
+            font-size: 5px;
+            right: 0px;
+            padding: 3px;
+            background-color: rgba(45, 45, 45, 0.385);
+            border-radius: 4px/4px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ------------下方各个界面------------------ */
+        .cdd {
+            display: flex;
+        }
+
+        .cdd li {
+            margin-top: 10px;
+            width: 17%;
+            margin: 5px 5px 0px;
+        }
+
+        .cdd li h3 {
+            font-size: 10px;
+            text-align: center;
+
+        }
+
+        .cdd li img {
+            border-radius: 50%;
+            width: 100%;
+            background-color: rgb(143, 220, 255);
+        }
+
+        .cdd li:nth-child(2) img {
+            border-radius: 50%;
+            width: 100%;
+            background-color: rgb(164, 255, 142);
+        }
+
+        .cdd li:nth-child(3) img {
+            border-radius: 50%;
+            width: 100%;
+            background-color: rgb(255, 170, 218);
+        }
+
+        .cdd li:nth-child(4) img {
+            border-radius: 50%;
+            width: 100%;
+            background-color: rgb(255, 188, 162);
+        }
+
+        .cdd li:nth-child(5) img {
+            border-radius: 50%;
+            width: 100%;
+            background-color: rgb(255, 244, 164);
+        }
+
+        .cdd li:nth-child(6) img {
+            border-radius: 50%;
+            width: 100%;
+            background-color: rgb(207, 201, 255);
+        }
+
+        /* <!-- ***************************主要内容****************************** --> */
+
+        .content {
+            margin: 0;
+            background-color: #fff;
+            border-top: 10px solid #ddd;
+        }
+
+        .content .text {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- /**************************顶部栏********************************/ -->
+
+    <header class="up-main">
+        <ul class="top">
+            <!-- ----------搜索------------- -->
+            <li>
+                <a href="#">
+                    <div>
+                        <!-- <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-sousuo"></use>
+                        </svg>-->
+                        <input type="text" placeholder="">
+                    </div>
+                </a>
+            </li>
+            <!-- ----------各个词条----------- -->
+            <li>
+                <a href="#">
+                    <div>
+                        <p>发现</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <p>娱乐</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <p>视频</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <p>体育</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <p>游戏</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </header>
+    <!-- /**************************底部栏********************************/ -->
+    <nav class="main">
+        <ul class="main2">
+        </ul>
+    </nav>
+    <!-- **************************热搜内容************************** -->
+    <div class="hotsearch">
+        <div class="ht">
+            <h3><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-sousuo"></use>
+                    </svg>
+                    <span>微博热搜</span></a>
+            </h3>
+        </div>
+        <!-- -------------------------------热搜------------------------------ -->
+        <ul class="llist">
+        </ul>
+    </div>
+    <div class="cd">
+        <!-- -----------------------------广告-------------------------------- -->
+        <a href="#">
+            <div class="C"><a href="#">
+                    <!-- <img src="http://ltx-image.test.upcdn.net/202212061403285.JPG" /> -->
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <span>广告</span>
+                                <img src="http://ltx-image.test.upcdn.net/202212061454998.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="http://ltx-image.test.upcdn.net/202212061456165.JPG" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="http://ltx-image.test.upcdn.net/202212061449459.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <span>广告</span>
+                                <img src="http://ltx-image.test.upcdn.net/202212061403285.JPG" />
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </a>
+            </div>
+        </a>
+        <!-- ************************************导航条*************************************** -->
+        <ul class="cdd">
+            <li><a href="#">
+                    <img src="https://img.00000.host/2022/12/06/638ec25a80060.png" alt="a.png" title="a.png" />
+                    <div class="txt">
+                        <h3><a href="#">房产</a></h3>
+                    </div>
+                </a>
+            </li>
+            <li><a href="#">
+                    <img src="https://img.00000.host/2022/12/06/638ec25a80060.png" alt="a.png" title="a.png" />
+                    <div class="txt">
+                        <h3><a href="#">直播</a></h3>
+                    </div>
+                </a>
+            </li>
+            <li><a href="#">
+                    <img src="https://img.00000.host/2022/12/06/638ec25a80060.png" alt="a.png" title="a.png" />
+                    <div class="txt">
+                        <h3><a href="#">音乐</a></h3>
+                    </div>
+                </a>
+            </li>
+            <li><a href="#">
+                    <img src="https://img.00000.host/2022/12/06/638ec25a80060.png" alt="a.png" title="a.png" />
+                    <div class="txt">
+                        <h3><a href="#">热议</a></h3>
+                    </div>
+                </a>
+            </li>
+            <li><a href="#">
+                    <img src="https://img.00000.host/2022/12/06/638ec25a80060.png" alt="a.png" title="a.png" />
+                    <div class="txt">
+                        <h3><a href="#">教育</a></h3>
+                    </div>
+                </a>
+            </li>
+            <li><a href="#">
+                    <img src="https://img.00000.host/2022/12/06/638ec25a80060.png" alt="a.png" title="a.png" />
+                    <div class="txt">
+                        <h3><a href="#">更多</a></h3>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- ***************************主要内容****************************** -->
+    <main class="content">
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061616942.jpg" alt="">
+                </a>
+                <a class="p-name" href="#">
+                    <p>释小龙Ashton</p>
+                    <div class="time" onload="time()"></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">秋天空气的味道清新上瘾</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061618386.jpg" alt="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061618813.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061620140.jpg" alt="">
+                </a>
+                <a class="p-name" href="#">
+                    <p>阿瘾是条咸鱼</p>
+                    <div class="time" onload="time()"></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">DC蝙蝠侠2已经推进</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061454998.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061449459.jpg">
+                </a>
+                <a class="p-name" href="#">
+                    <p>波仔bznb</p>
+                    <div class="time" onload=time()></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">黑亚当 Black Adam (2022)抢先版</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061622887.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061616942.jpg" alt="">
+                </a>
+                <a class="p-name" href="#">
+                    <p>释小龙Ashton</p>
+                    <div class="time" onload="time()"></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">秋天空气的味道清新上瘾</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061618386.jpg" alt="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061618813.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061620140.jpg" alt="">
+                </a>
+                <a class="p-name" href="#">
+                    <p>阿瘾是条咸鱼</p>
+                    <div class="time" onload="time()"></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">DC蝙蝠侠2已经推进</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061454998.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061449459.jpg">
+                </a>
+                <a class="p-name" href="#">
+                    <p>波仔bznb</p>
+                    <div class="time" onload=time()></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">黑亚当 Black Adam (2022)抢先版</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061622887.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+    </main>
+    <!-- ***************************JavaScript**************************** -->
+    <script src="./swiper/swiper-bundle.min.js"></script>
+    <script>
+        //*******************************底部栏**************************************
+
+        var url = "http://rap2api.taobao.org/app/mock/308020/page3"
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("GET", url, true);//get请求，url说明是yrl,true是异步
+        xhr.send();
+
+        xhr.onreadystatechange = function () {//监听成功
+            if (xhr.readyState === 4 && xhr.status === 200) {//状态码为200
+                console.log(xhr.responseText);
+                var jarr = JSON.parse(xhr.responseText);
+                //从服务器端获得数据在网页显示 JSON.parse()服务器端数据变成json
+                insert(jarr);//insert这个名字是自己起名的
+            }
+        }
+        function insert(jarr) {
+            var alist = document.querySelector(".main2");//获取上面的class
+            jarr.forEach((v, i) => {
+                var nli = document.createElement("li");//创建一个元素
+                nli.innerHTML = `
+            <li>
+            <a href="${v.page}">
+                <div>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="${v.Symbol}"></use>
+                    </svg>
+                </div>
+                <p>${v.pageName}</p>
+            </a>
+        </li>`;
+                alist.appendChild(nli);//末尾加一个li
+                console.log(i)
+            });
+        }
+        //************************************微博热搜******************************
+        var a = "http://rap2api.taobao.org/app/mock/308020/0810";
+        var jlist = document.querySelector(".llist");
+
+        const p = new Promise((resolve, reject) => {//const:静态变量
+            var r = Math.floor(Math.random() * 101);//1到100的随机数
+            if (r > 0) {//生成一个大于50的随机数后变算成功
+                resolve(r);// resolve函数的作用是，将Promise对象的状态从“未完成”变为“成功”
+            }
+        });
+
+        fetch(a).then(data => {//成功后就then，是Promise成功/失败之后处理反式
+            return data.json();//把它变成json,返回下一步
+        }).then(data => {//成功之后...
+            data.forEach((v, i) => {//v:数组成员1行，i是索引
+                if (i < 11) {//如果是前11个热搜
+                    var nli = document.createElement("li");
+                    nli.innerHTML = `
+            <a href="${v.link}">${v.title}</a>
+            `;
+                    jlist.appendChild(nli);//jlist的内部的最后增加
+                }
+                if (i == 12) {//如果是第12个热搜
+                    var nli = document.createElement("li");
+                    nli.innerHTML = `
+            <a href="./3_5_HotSearch.html"><span>更多热搜&gt</span></a>
+            `;
+                    jlist.appendChild(nli);//jlist的内部的最后增加
+                }
+            });
+        });
+
+        // ***********************************************************************
+        // var jlist = document.querySelector(".llist");
+        // data.forEach((v, i) => {//v:数组成员1行，i是索引
+        //     if (i < 11) {
+        //         var nli = document.createElement("li");
+        //         nli.innerHTML = `
+        //     <a href="${v.link}">${v.title}</a>
+        //     `;
+        //         jlist.appendChild(nli);//jlist的内部的最后增加
+        //     }
+        //     if (i == 12) {
+        //         var nli = document.createElement("li");
+        //         nli.innerHTML = `
+        //     <a href="./3_5_HotSearch.html"><span>更多热搜&gt</span></a>
+        //     `;
+        //         jlist.appendChild(nli);//jlist的内部的最后增加
+        //     }
+        // });
+        //*********************广告*********************************************
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            effect: "fade",
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+</body>
+
+</html>

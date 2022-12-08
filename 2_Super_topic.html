@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,
+   maximum-scale=1.0, user-scalable=0, shrink-to-fit=no, viewport-fit=cover">
+
+    <script src="./fondz/iconfont.js"></script><!-- 第一步：引入项目下面生成的 symbol 代码： -->
+
+    <link rel="stylesheet" href="./css/pub.css"><!-- 引入全局css -->
+    <link rel="stylesheet" href="./css/Bottom_bar.css"><!-- 引入底部栏 -->
+    <link rel="stylesheet" href="./css/UpNavigation.css"><!-- 引入上导航 -->
+    <link rel="stylesheet" href="./css/main.css"><!-- 引入每一个微博 -->
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css"><!-- 引入swipper -->
+    <title>超话页面</title>
+
+    <style>
+        /* swipper的css */
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .mySwiper img {
+            width: 100%;
+        }
+
+        /* 引入svg */
+        .icon {
+            /* 第二步：加入通用 CSS 代码（引入一次就行）： */
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            margin-bottom: 60px;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: table;
+            /* table 让块级元素在一行显示*/
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        /********************************上导航*******************************/
+
+        .up-main p {
+            font-size: 30px;
+            margin: 6px auto;
+            white-space: nowrap;
+
+        }
+
+        .up-main li:nth-child(1) {
+            padding-left: 1%;
+            text-align: left;
+        }
+
+        .up-main li:nth-child(2) {
+            padding-right: 1%;
+            text-align: right;
+            flex-grow: 1;
+
+        }
+
+        .up-main li:nth-child(2) p {
+            color: #000;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .up-main li:nth-child(3) {
+            padding-left: 1%;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .up-main li:nth-child(3) p {
+            color: rgb(124, 124, 124);
+            font-size: 20px;
+        }
+
+        .up-main li:nth-child(4) {
+            padding-right: 1%;
+            text-align: right;
+        }
+
+        /*************************内容 主类***************************/
+        .header {
+            list-style: none;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        /**************************搜索框内容************************/
+        .header .search {
+            margin: 0px auto 10px;
+            width: 100%;
+        }
+
+        .header .search li {
+            height: 50px;
+            border-radius: 50px/50px;
+            background-color: #eee;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .header .search li div {
+            color: rgb(132, 131, 131);
+            height: 10px;
+            margin-left: 60px;
+        }
+
+        .header .search .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        .header .search input {
+            height: 15px;
+            background-color: #eee;
+            border: none;
+            flex-grow: 1;
+            outline: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 15px;
+        }
+
+        /***********************我的超话************************/
+        .header .my-super-topic {
+            background-color: rgb(251, 238, 223);
+            border-radius: 20px/20px;
+            z-index: 9;
+            margin: 0px 10px;
+        }
+
+        /* <!-- -----------------超话标题--------------------- --> */
+        .supertopic-label {
+            margin: 10px 0 0 15px;
+            color: rgb(186, 110, 67);
+            font-size: 18px;
+            font-weight: 700px;
+            white-space: nowrap;
+        }
+
+        .sign-in {
+            white-space: nowrap;
+            color: rgb(186, 110, 67);
+            margin: 10px 10px 0 0;
+        }
+
+        .my-super-topic-up {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* <!-- -----------------超话内容------------------ --> */
+        .topics ul {
+            width: 100%;
+            white-space: nowrap;
+        }
+
+        .topics ul li {
+            margin: 10px 13px 0px;
+            float: left;
+            width: 11.5%;
+            height: 100px;
+            text-align: center;
+            display: flex;
+        }
+
+        .topics ul li div {
+            margin: 0 auto;
+            width: 62px;
+            border-radius: 10px/10px;
+        }
+
+        .topics ul li img {
+            width: 100%;
+            border-radius: 10px/10px;
+        }
+
+        .second {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .clearfix li p {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* <!-- ******************************活动****************************** --> */
+        .collect-activity {
+            display: flex;
+            width: 380px;
+        }
+
+        .collect-up {
+            background: linear-gradient(rgb(234, 188, 255), #fff);
+            width: 100%;
+            margin: 10px;
+            border-right: 1px solid #fff;
+            border-radius: 10px/10px;
+        }
+
+        .collect-up2 {
+            background: linear-gradient(rgb(201, 255, 252), #fff);
+            width: 100%;
+            margin: 10px 20px 10px;
+            border-radius: 10px/10px;
+        }
+
+        /* ----------上面内容---------- */
+        .collect-up-title {
+            display: flex;
+            /* border-bottom: 1px dotted #ccc; */
+            margin: 8px 8px;
+        }
+
+        .collect-up-title .collect-leftt {
+            margin-left: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-grow: 1;
+            margin-right: 40px;
+            white-space: nowrap;
+            /* 文字溢出隐藏 */
+            text-overflow: ellipsis;
+            font-size: 15px;
+        }
+
+        .collect-up-title .collect-leftt svg {
+            font-size: 25px;
+            margin-right: 5px;
+
+        }
+
+        .collect-up-title .collect-leftt span {
+            font-weight: bold;
+            font-size: 25px;
+
+        }
+
+        .collect-up-title .collect-rightt {
+            margin-right: 10px;
+            font-size: 15px;
+            line-height: 35px;
+            color: rgb(224, 224, 224);
+            text-shadow: 0px 0px 5px #000;
+        }
+
+        /* ----------下面内容---------- */
+        .collect-neirong li {
+            display: flex;
+            flex-wrap: wrap;
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: .5rem;
+            margin: 10px 8px 10px 15px;
+        }
+
+        .collect-neirong img {
+            width: 70px;
+            border-radius: 10%;
+        }
+
+        .collect-neirong h3 {
+            font-size: 20px;
+            line-height: 40px;
+            width: 100%;
+        }
+
+        .collect-neirong .txt {
+            margin-left: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .collect-neirong .txt h3 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .collect-neirong .neirong {
+            font-size: 12px;
+            line-height: 22px;
+            color: #999;
+
+        }
+
+        .collect-neirong .contect-time {
+
+            background: rgb(255, 160, 69);
+            flex-wrap: wrap;
+        }
+
+        .contect-time {
+            position: absolute;
+        }
+
+        .collect-neirong .tim {
+            display: block;
+            position: relative;
+            top: 15px;
+            left: 130px;
+            width: 50px;
+            height: 30px;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+            line-height: 30px;
+            color: rgb(255, 209, 101);
+            border-radius: 50px 50px;
+            background-color: #fff;
+            padding: 1px;
+            border: 1px solid;
+        }
+
+        /* <!-- ***************************主要内容****************************** --> */
+        .content {
+            margin: 0;
+            background-color: #fff;
+            border-top: 10px solid #ddd;
+
+        }
+
+        .content .text {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- /**************************顶部栏********************************/ -->
+
+    <header class="up-main">
+        <ul>
+            <li>
+                <a href="#">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-tianchongxing-1"></use>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <p>看帖</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <p>广场</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-tianjiatianchong"></use>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </header>
+    <!-- /**************************底部栏********************************/ -->
+    <nav class="main">
+        <ul class="main2">
+        </ul>
+    </nav>
+
+
+    <div class="header">
+        <!-- ******************************搜索****************************** -->
+        <div class="search">
+            <li>
+                <a href="#">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-sousuo"></use>
+                        </svg>
+                        <input type="text" placeholder="大家都在搜索:rose">
+                    </div>
+                </a>
+            </li>
+        </div>
+        <!-- ******************************超话****************************** -->
+        <div class="my-super-topic">
+            <!-- -----------------超话标题----------------- -->
+            <div class="my-super-topic-up">
+                <a href="#">
+                    <p class="supertopic-label fl">我的超话</p>
+                </a>
+                <!-- <span class="middle"> </span> -->
+                <a href="#">
+                    <p class="sign-in fr">立刻签到 &gt</p>
+                </a>
+            </div>
+            <!-- -----------------超话内容----------------- -->
+            <div class="topics">
+                <ul class="clearfix">
+                    <li>
+                        <a href="#">
+                            <div>
+    
+                                <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                            </div>
+                            <!-- 来源：https://console.upyun.com/services/ltx-image/filemanage/ -->
+                            <!-- <img src="https://pic8.58cdn.com.cn/nowater/webim/big/n_v22a7338bd292d446583e5b19305c18789.jpg" alt="my_super_ topic_1.JPG" title="my_super_ topic_1.JPG" /> -->
+                            <!-- 第二个来源：https://jiketuchuang.com/ -->
+                            <p class="first">玉林</p>
+                            <p class="second">日新帖3</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                            </div>
+                            <p class="first">玉林</p>
+                            <p class="second">日新帖3</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                            </div>
+                            <p class="first">玉林</p>
+                            <p class="second">日新帖3</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                            </div>
+                            <p class="first">玉林</p>
+                            <p class="second">日新帖3</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                            </div>
+                            <p class="first">玉林</p>
+                            <p class="second">日新帖3</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- ******************************活动****************************** -->
+        <div class="collect-activity">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <!-- -----------------征集活动------------------------ -->
+                        <div class="collect-up">
+                            <!-- ----------上面内容---------- -->
+                            <div class="collect-up-title">
+                                <div class="collect-leftt"><a href="#">
+                                        <svg class="icon" aria-hidden="true">
+                                            <use xlink:href="#icon-bianpinghuatubiaosheji-"></use>
+                                        </svg>
+                                        <span>征集活动</span></a>
+                                </div><a href="#">
+                                    <div class="collect-rightt">
+                                        更多 &gt
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- ----------下面内容---------- -->
+                            <div class="collect-neirong">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                                            <div class="txt">
+                                                <h3><a href="#">#标题</a></h3>
+                                                <span class="neirong">内容</span>
+                                            </div>
+                                            <a href="#">
+                                                <div class=".contect-time"><a href="#">
+                                                        <span class="tim">去看看</span>
+                                                    </a>
+                                                </div>
+                                            </a>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                                            <div class="txt">
+                                                <h3><a href="#">#标题</a></h3>
+                                                <span class="neirong">内容</span>
+                                            </div>
+                                            <a href="#">
+                                                <div class=".contect-time">
+                                                    <a href="#">
+                                                        <span class="tim">去看看</span>
+                                                    </a>
+                                                </div>
+                                            </a>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <!-- -----------------打卡活动------------------------ -->
+                        <div class="collect-up2">
+                            <!-- ----------上面内容---------- -->
+                            <div class="collect-up-title">
+                                <div class="collect-leftt"><a href="#">
+                                        <svg class="icon" aria-hidden="true">
+                                            <use xlink:href="#icon-bianpinghuatubiaosheji-"></use>
+                                        </svg>
+                                        <span>打卡活动</span></a>
+                                </div><a href="#">
+                                    <div class="collect-rightt">
+                                        更多 &gt
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- ----------下面内容---------- -->
+                            <div class="collect-neirong">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                                            <div class="txt">
+                                                <h3><a href="#">#标题</a></h3>
+                                                <span class="neirong">内容</span>
+                                            </div>
+                                            <a href="#">
+                                                <div class=".contect-time"><a href="#">
+                                                        <span class="tim">去看看</span>
+                                                    </a>
+                                                </div>
+                                            </a>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                                            <div class="txt">
+                                                <h3><a href="#">#标题</a></h3>
+                                                <span class="neirong">内容</span>
+                                            </div>
+                                            <a href="#">
+                                                <div class=".contect-time">
+                                                    <a href="#">
+                                                        <span class="tim">去看看</span>
+                                                    </a>
+                                                </div>
+                                            </a>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -----------------打卡活动----------------- -->
+            <div class="clock-in">
+
+            </div>
+        </div>
+    </div>
+    <!-- ***************************主要内容****************************** -->
+    <main class="content">
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061616942.jpg" alt="">
+                </a>
+                <a class="p-name" href="#">
+                    <p>释小龙Ashton</p>
+                    <div class="time" onload="time()"></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">秋天空气的味道清新上瘾</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061618386.jpg" alt="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061618813.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061620140.jpg" alt="">
+                </a>
+                <a class="p-name" href="#">
+                    <p>阿瘾是条咸鱼</p>
+                    <div class="time" onload="time()"></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">DC蝙蝠侠2已经推进</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061454998.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061449459.jpg">
+                </a>
+                <a class="p-name" href="#">
+                    <p>波仔bznb</p>
+                    <div class="time" onload=time()></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">黑亚当 Black Adam (2022)抢先版</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061622887.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061616942.jpg" alt="">
+                </a>
+                <a class="p-name" href="#">
+                    <p>释小龙Ashton</p>
+                    <div class="time" onload="time()"></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">秋天空气的味道清新上瘾</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061618386.jpg" alt="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061618813.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061620140.jpg" alt="">
+                </a>
+                <a class="p-name" href="#">
+                    <p>阿瘾是条咸鱼</p>
+                    <div class="time" onload="time()"></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">DC蝙蝠侠2已经推进</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061454998.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+
+        <div class="piece">
+            <div class="piece-person">
+                <a class="p-img" href="">
+                    <img src="http://ltx-image.test.upcdn.net/202212061449459.jpg">
+                </a>
+                <a class="p-name" href="#">
+                    <p>波仔bznb</p>
+                    <div class="time" onload=time()></div>
+                </a>
+            </div>
+            <div class="piece-content">
+                <p class="text">黑亚当 Black Adam (2022)抢先版</p>
+                <div class="photos">
+                    <img src="http://ltx-image.test.upcdn.net/202212061622887.jpg" alt="">
+                </div>
+            </div>
+            <div class="evaluate"></div>
+            <div class="three-even-a-key"><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhuanfa"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-liuyan"></use>
+                    </svg></a><a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan"></use>
+                    </svg></a>
+            </div>
+        </div>
+    </main>
+    <!-- ***************************JavaScript**************************** -->
+    <script src="./swiper/swiper-bundle.min.js"></script><!-- 引入swipper的js -->
+    <script>
+
+        var swiper = new Swiper(".mySwiper", {
+            // slidesPerView: 3,
+            // spaceBetween: 1,
+        });
+
+
+        var url = "http://rap2api.taobao.org/app/mock/308020/page2"
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("GET", url, true);//get请求，url说明是yrl,true是异步
+        xhr.send();
+
+        xhr.onreadystatechange = function () {//监听成功
+            if (xhr.readyState === 4 && xhr.status === 200) {//状态码为200
+                console.log(xhr.responseText);
+                var jarr = JSON.parse(xhr.responseText);
+                //从服务器端获得数据在网页显示 JSON.parse()服务器端数据变成json
+                insert(jarr);//insert这个名字是自己起名的
+            }
+        }
+        function insert(jarr) {
+            var alist = document.querySelector(".main2");//获取上面的class
+            jarr.forEach((v, i) => {
+                var nli = document.createElement("li");//创建一个元素
+                nli.innerHTML = `
+            <li>
+            <a href="${v.page}">
+                <div>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="${v.Symbol}"></use>
+                    </svg>
+                </div>
+                <p>${v.pageName}</p>
+            </a>
+        </li>`;
+                alist.appendChild(nli);//末尾加一个li
+            });
+        }
+    </script>
+</body>
+
+</html>

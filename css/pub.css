@@ -1,0 +1,28 @@
+h1,h2,h3,h4,h5,h6,body,ul,p,form,dl,dd,dt{                 /* 默认和周围有距离 */
+    padding: 0;
+    margin: 0;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;/* 超链接 */
+    color: #000;
+}
+a:visited{/* 访问过的超链接 */
+    color: #000;
+}
+img{
+    border: none;
+    display: block;
+}
+body{/* 整体手机宽度做规划 */
+    min-width: 320px;
+    max-width: 1200px;/* 推荐不给 */
+    margin: 0 auto;/* 和max-width一起用 */
+    overflow-x: hidden;/* 横向溢出 */
+}
+/* rem */
+html{
+    font-size: 5.4vm;
+}

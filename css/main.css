@@ -1,0 +1,67 @@
+        /***********************内容***************************************/
+        .content {
+            width: 100%;
+            margin: 45px auto 60px;
+        }
+        .piece {
+            margin-bottom: 3px;
+            margin-left: 2px;
+            margin-right: 3px;
+            background-color: #eee;
+        }
+
+        .piece .evaluate {
+            /* 下方线 */
+            border-bottom: 2px solid rgb(210, 210, 210);
+        }
+
+        .piece .piece-person {
+            /* margin-top: 10px; */
+            display: flex;
+            height: 60px;
+        }
+
+        .piece .piece-person .p-img {
+            margin-top: 10px;
+            margin-left: 8px;
+            display: block;
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 25px;
+        }
+
+        .piece .piece-person .p-img img {
+            width: 100%;
+        }
+
+        .piece .piece-person .p-name {
+            margin-top: 10px;
+            flex: 1;
+            padding-left: 8px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .piece .piece-person .p-name .time {
+            font-weight: normal;
+
+        }
+
+        .piece .piece-content {
+            flex: 1;
+            margin-left: 35px;
+        }
+
+        .piece .piece-content .photos img {
+            display: inline-block;
+            width: 150px;
+            flex-wrap:nowrap;
+            white-space: nowrap;
+        }
+
+        .piece .three-even-a-key svg {
+            width: 32%;
+            text-align: center;
+            font-size: 25px;
+        }
