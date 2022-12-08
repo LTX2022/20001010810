@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -14,8 +15,8 @@
     <link rel="stylesheet" href="./css/pub.css"><!-- 引入全局css -->
     <link rel="stylesheet" href="./css/Bottom_bar.css"><!-- 引入底部栏 -->
     <link rel="stylesheet" href="./css/UpNavigation.css"><!-- 引入上导航 -->
-    <link rel="stylesheet" href="./css/main.css"><!-- 引入每一个微博 -->
-    <title>微博主页</title>
+
+    <title>超话页面</title>
 
     <style>
         .icon {
@@ -27,55 +28,177 @@
             overflow: hidden;
         }
 
-        body {
-            padding: 0;
-            margin: 0;
-            /* margin-bottom: 100px; */
-        }
+        /***************************上导航******************************/
 
-        /************************上导航条****************************/
         .up-main p {
             font-size: 20px;
             margin: 6px auto;
-            flex-grow: 1;
+            font-weight: lighter;
             white-space: nowrap;
-
         }
 
         .up-main li:nth-child(1) {
-            text-align: left;
             padding-left: 1%;
+            text-align: left;
+
         }
 
         .up-main li:nth-child(2) {
             padding-right: 1%;
             text-align: right;
-            flex-grow: 1;
-
+            flex-grow: 0.7;
         }
 
         .up-main li:nth-child(2) p {
+            color: rgb(124, 124, 124);
+            /* font-weight: bold; */
+        }
+
+        .up-main li:nth-child(3) {
+            padding-left: 0%;
+            text-align: left;
+        }
+
+        .up-main li:nth-child(3) p {
             color: #000;
             font-weight: bold;
         }
 
-        .up-main li:nth-child(3) {
-            padding-left: 1%;
-            text-align: left;
-            flex-grow: 0.7;
-        }
-
-        .up-main li:nth-child(3) p {
-            color: rgb(124, 124, 124);
-        }
-
         .up-main li:nth-child(4) {
-            text-align: right;
+            padding-right: 0%;
+            text-align: left;
+            flex-grow: 1;
         }
 
         .up-main li:nth-child(5) {
             padding-right: 1%;
             text-align: right;
+        }
+
+        /*******************************搜索内容******************************/
+        .mains {
+            list-style: none;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .mains .searching {
+            margin: 0px auto 10px;
+            width: 100%;
+        }
+
+        .mains .searching div {
+            height: 50px;
+            border-radius: 50px/50px;
+            background-color: #eee;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .mains .searching div input {
+            height: 15px;
+            background-color: #eee;
+            border: none;
+            flex-grow: 1;
+            outline: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        /*******************************聊天内容框******************************/
+        .mains .tlist li {
+            display: flex;
+            border-bottom: 1px dotted #ccc;
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+        }
+
+        .mains .tlist img {
+            width: 70px;
+            border-radius: 50%;
+        }
+
+        .mains .tlist .txt {
+            margin-left: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-grow: 1;
+            margin-right: 40px;
+            white-space: nowrap;
+            /* 文字溢出隐藏 */
+            text-overflow: ellipsis;
+            font-size: .5rem;
+        }
+
+        .mains .tlist .txt h3 {
+            font-size: 20px;
+            line-height: 40px;
+            width: 100%;
+        }
+
+        .mains .tlist .txt span {
+            font-size: 12px;
+            line-height: 22px;
+            color: #999;
+        }
+
+        .mains .tlist .txt .neirong {
+            white-space: nowrap;
+            /* 文字溢出隐藏 */
+            text-overflow: ellipsis;
+            font-size: .5rem;
+            width: 100%;
+        }
+
+        .mains .tlist .tim {
+            margin-right: 10px;
+            line-height: 40px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* *********************前三个聊天框********************** */
+        .mains .tlist li:nth-child(1) div {
+            margin-top: 15px;
+        }
+
+        .mains .tlist li:nth-child(1) div span {
+            font-size: larger;
+            font-weight: bolder;
+        }
+
+        .mains .tlist li:nth-child(1) img {
+            background-color: rgb(113, 179, 209);
+        }
+
+        .mains .tlist li:nth-child(2) div {
+            margin-top: 15px;
+        }
+
+        .mains .tlist li:nth-child(2) div span {
+            font-size: larger;
+            font-weight: bolder;
+        }
+
+        .mains .tlist li:nth-child(2) img {
+            background-color: rgb(113, 179, 209);
+        }
+
+        .mains .tlist li:nth-child(3) div {
+            margin-top: 15px;
+        }
+
+        .mains .tlist li:nth-child(3) div span {
+            font-size: larger;
+            font-weight: bolder;
+        }
+
+        .mains .tlist li:nth-child(3) img {
+            background-color: rgb(113, 179, 209);
         }
     </style>
 </head>
@@ -86,321 +209,231 @@
             <li>
                 <a href="#">
                     <div>
+                        <p>发现群</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <p>动态</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
+                        <p>消息</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div>
                         <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-yanchurili"></use>
+                            <use xlink:href="#icon-qinglihuancun"></use>
                         </svg>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="./index.html">
-                    <div>
-                        <p>关注</p>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div>
-                        <p>推荐</p>
-                    </div>
-                </a>
-            </li>
-            <li>
                 <a href="#">
                     <div>
                         <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-hongbao"></use>
-                        </svg>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div>
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-tianjiatianchong"></use>
+                            <use xlink:href="#icon-shezhi"></use>
                         </svg>
                     </div>
                 </a>
             </li>
         </ul>
     </header>
-
-    <main class="content">
-        <div class="piece">
-            <div class="piece-person">
-                <a class="p-img" href="">
-                    <img src="http://ltx-image.test.upcdn.net/202212061616942.jpg" alt="">
-                </a>
-                <a class="p-name" href="#">
-                    <p>释小龙Ashton</p>
-                    <div class="time" onload="time()"></div>
-                </a>
-            </div>
-            <div class="piece-content">
-                <p class="text">秋天空气的味道清新上瘾</p>
-                <div class="photos">
-                    <img src="http://ltx-image.test.upcdn.net/202212061618386.jpg" alt="">
-                    <img src="http://ltx-image.test.upcdn.net/202212061618813.jpg" alt="">
+    <!-- ********************************搜索框************************** -->
+    <main class="mains">
+        <div class="searching">
+            <a href="#">
+                <div>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-sousuo"></use>
+                    </svg>
+                    <input type="text" placeholder="搜索聊天记录、群号">
                 </div>
-            </div>
-            <div class="evaluate"></div>
-            <div class="three-even-a-key"><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-zhuanfa"></use>
-                    </svg></a><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-liuyan"></use>
-                    </svg></a><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-dianzan"></use>
-                    </svg></a>
-            </div>
+            </a>
         </div>
-        <div class="piece">
-            <div class="piece-person">
-                <a class="p-img" href="">
-                    <img src="http://ltx-image.test.upcdn.net/202212061620140.jpg" alt="">
-                </a>
-                <a class="p-name" href="#">
-                    <p>阿瘾是条咸鱼</p>
-                    <div class="time" onload="time()"></div>
-                </a>
-            </div>
-            <div class="piece-content">
-                <p class="text">DC蝙蝠侠2已经推进</p>
-                <div class="photos">
-                    <img src="http://ltx-image.test.upcdn.net/202212061454998.jpg" alt="">
-                </div>
-            </div>
-            <div class="evaluate"></div>
-            <div class="three-even-a-key"><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-zhuanfa"></use>
-                    </svg></a><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-liuyan"></use>
-                    </svg></a><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-dianzan"></use>
-                    </svg></a>
-            </div>
-        </div>
-
-        <div class="piece">
-            <div class="piece-person">
-                <a class="p-img" href="">
-                    <img src="http://ltx-image.test.upcdn.net/202212061449459.jpg">
-                </a>
-                <a class="p-name" href="#">
-                    <p>波仔bznb</p>
-                    <div class="time" onload=time()></div>
-                </a>
-            </div>
-            <div class="piece-content">
-                <p class="text">黑亚当 Black Adam (2022)抢先版</p>
-                <div class="photos">
-                    <img src="http://ltx-image.test.upcdn.net/202212061622887.jpg" alt="">
-                </div>
-            </div>
-            <div class="evaluate"></div>
-            <div class="three-even-a-key"><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-zhuanfa"></use>
-                    </svg></a><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-liuyan"></use>
-                    </svg></a><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-dianzan"></use>
-                    </svg></a>
-            </div>
-        </div>
-        <div class="piece">
-            <div class="piece-person">
-                <a class="p-img" href="">
-                    <img src="http://ltx-image.test.upcdn.net/202212061616942.jpg" alt="">
-                </a>
-                <a class="p-name" href="#">
-                    <p>释小龙Ashton</p>
-                    <div class="time" onload="time()"></div>
-                </a>
-            </div>
-            <div class="piece-content">
-                <p class="text">秋天空气的味道清新上瘾</p>
-                <div class="photos">
-                    <img src="http://ltx-image.test.upcdn.net/202212061618386.jpg" alt="">
-                    <img src="http://ltx-image.test.upcdn.net/202212061618813.jpg" alt="">
-                </div>
-            </div>
-            <div class="evaluate"></div>
-            <div class="three-even-a-key"><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-zhuanfa"></use>
-                    </svg></a><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-liuyan"></use>
-                    </svg></a><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-dianzan"></use>
-                    </svg></a>
-            </div>
-        </div>
-        <div class="piece">
-            <div class="piece-person">
-                <a class="p-img" href="">
-                    <img src="http://ltx-image.test.upcdn.net/202212061620140.jpg" alt="">
-                </a>
-                <a class="p-name" href="#">
-                    <p>阿瘾是条咸鱼</p>
-                    <div class="time" onload="time()"></div>
-                </a>
-            </div>
-            <div class="piece-content">
-                <p class="text">DC蝙蝠侠2已经推进</p>
-                <div class="photos">
-                    <img src="http://ltx-image.test.upcdn.net/202212061454998.jpg" alt="">
-                </div>
-            </div>
-            <div class="evaluate"></div>
-            <div class="three-even-a-key"><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-zhuanfa"></use>
-                    </svg></a><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-liuyan"></use>
-                    </svg></a><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-dianzan"></use>
-                    </svg></a>
-            </div>
-        </div>
-
-        <div class="piece">
-            <div class="piece-person">
-                <a class="p-img" href="">
-                    <img src="http://ltx-image.test.upcdn.net/202212061449459.jpg">
-                </a>
-                <a class="p-name" href="#">
-                    <p>波仔bznb</p>
-                    <div class="time" onload=time()></div>
-                </a>
-            </div>
-            <div class="piece-content">
-                <p class="text">黑亚当 Black Adam (2022)抢先版</p>
-                <div class="photos">
-                    <img src="http://ltx-image.test.upcdn.net/202212061622887.jpg" alt="">
-                </div>
-            </div>
-            <div class="evaluate"></div>
-            <div class="three-even-a-key"><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-zhuanfa"></use>
-                    </svg></a><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-liuyan"></use>
-                    </svg></a><a href="#">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-dianzan"></use>
-                    </svg></a>
-            </div>
+        <!-- ********************************聊天列表************************** -->
+        <div class="tlist">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="https://img.00000.host/2022/12/06/638ec25a80060.png" alt="a.png" title="a.png" />
+                        <div class="txt">
+                            <h3><a href="#">@我的</a></h3>
+                        </div>
+                        <div class="contect-time">
+                            <span class="tim">&gt;</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="https://img.00000.host/2022/12/06/638ec25a80060.png" alt="a.png" title="a.png" />
+                        <div class="txt">
+                            <h3><a href="#">评论</a></h3>
+                        </div>
+                        <div class="contect-time">
+                            <span class="tim">&gt;</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="https://img.00000.host/2022/12/06/638ec25a80060.png" alt="a.png" title="a.png" />
+                        <div class="txt">
+                            <h3><a href="#">赞</a></h3>
+                        </div>
+                        <div class="contect-time">
+                            <span class="tim">&gt;</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                        <div class="txt">
+                            <h3><a href="#">标题</a></h3>
+                            <span class="neirong">内容</span>
+                        </div>
+                        <div class="contect-time">
+                            <span class="tim">2022-11-16</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://ltx-image.test.upcdn.net/202212061449459.jpg" alt="">
+                        <div class="txt">
+                            <h3><a href="#">标题</a></h3>
+                            <span class="neirong">内容</span>
+                        </div>
+                        <div class="contect-time">
+                            <span class="tim">2022-11-16</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://ltx-image.test.upcdn.net/202212061456165.JPG" alt="">
+                        <div class="txt">
+                            <h3><a href="#">标题</a></h3>
+                            <span class="neirong">内容</span>
+                        </div>
+                        <div class="contect-time">
+                            <span class="tim">2022-11-16</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                        <div class="txt">
+                            <h3><a href="#">标题</a></h3>
+                            <span class="neirong">内容</span>
+                        </div>
+                        <div class="contect-time">
+                            <span class="tim">2022-11-16</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                        <div class="txt">
+                            <h3><a href="#">标题</a></h3>
+                            <span class="neirong">内容</span>
+                        </div>
+                        <div class="contect-time">
+                            <span class="tim">2022-11-16</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                        <div class="txt">
+                            <h3><a href="#">标题</a></h3>
+                            <span class="neirong">内容</span>
+                        </div>
+                        <div class="contect-time">
+                            <span class="tim">2022-11-16</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                        <div class="txt">
+                            <h3><a href="#">标题</a></h3>
+                            <span class="neirong">内容</span>
+                        </div>
+                        <div class="contect-time">
+                            <span class="tim">2022-11-16</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://ltx-image.test.upcdn.net/202212022159718.JPG" alt="">
+                        <div class="txt">
+                            <h3><a href="#">标题</a></h3>
+                            <span class="neirong">内容</span>
+                        </div>
+                        <div class="contect-time">
+                            <span class="tim">2022-11-16</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
         </div>
     </main>
+    <!-- /**************************底部栏********************************/ -->
     <nav class="main">
         <ul class="main2">
         </ul>
     </nav>
+
     <!-- ***************************JavaScript**************************** -->
     <script>
-        // <!-- ***************************时间**************************** -->
+        var url = "http://rap2api.taobao.org/app/mock/308020/page4"
+        var xhr = new XMLHttpRequest();
 
-        function time() {
-            var now = new Date(84848484848484);
-            var before = new Date();
-            var month = now.getMonth(); //得到月份
-            var date = now.getDate(); //得到日期
-            var hour = now.getHours(); //得到小时
-            var minu = now.getMinutes(); //得到分钟
+        xhr.open("GET", url, true);//get请求，url说明是yrl,true是异步
+        xhr.send();
 
-            month = month + 1;
-            date = date + 1;
-
-            if (month < 10) month = "0" + month;
-            if (date < 10) date = "0" + date;
-            if (hour < 10) hour = "0" + hour;
-            if (minu < 10) minu = "0" + minu;
-            var currentTime = month + "-" + date + "   " + hour + ":" + minu;
-            var timeArr = document.querySelectorAll(".time");
-            for (let i = 0; i < timeArr.length; i++) {
-                timeArr[i].innerHTML = currentTime;
-            }
-            //console.log(timeArr);
-        }
-        setInterval("time()", 1000);
-        // <!-- ***************************下导航**************************** -->
-        var url2 = [
-            {
-                "page": "./index.html",
-                "Symbol": "#icon-shouye-tianchong-copy",
-                "pageName": "微博"
-            },
-            {
-                "page": "./2_Super_topic.html",
-                "Symbol": "#icon-JC_044",
-                "pageName": "超话"
-            },
-            {
-                "page": "./3_Found_page.html",
-                "Symbol": "#icon-sousuo",
-                "pageName": "发现"
-            },
-            {
-                "page": "./4_Message.html",
-                "Symbol": "#icon-xiaoxitongzhi",
-                "pageName": "消息"
-            },
-            {
-                "page": "./my.html",
-                "Symbol": "#icon-yonghu",
-                "pageName": "我"
-            }
-        ];
-        window.onload = function () {
-            var url = "http://rap2api.taobao.org/app/mock/308020/index"
-            var xhr = new XMLHttpRequest();
-
-            xhr.open("GET", url2, true);//get请求，url说明是yrl,true是异步
-            xhr.send();
-
-            xhr.onreadystatechange = function () {//监听成功
-                if (xhr.readyState === 4 && xhr.status === 200) {//状态码为200
-                    console.log(xhr.responseText);
-                    var jarr = JSON.parse(xhr.responseText);
-                    //从服务器端获得数据在网页显示 JSON.parse()服务器端数据变成json
-                    insert(jarr);//insert这个名字是自己起名的
-                }
-            }
-            function insert(jarr) {
-                var alist = document.querySelector(".main2");//获取上面的class
-                jarr.forEach((v, i) => {
-                    var nli = document.createElement("li");//创建一个元素
-                    nli.innerHTML = `
-            <li>
-            <a href="${v.page}">
-                <div>
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="${v.Symbol}"></use>
-                    </svg>
-                </div>
-                <p>${v.pageName}</p>
-            </a>
-        </li>`;
-                    alist.appendChild(nli);//末尾加一个li
-                });
+        xhr.onreadystatechange = function () {//监听成功
+            if (xhr.readyState === 4 && xhr.status === 200) {//状态码为200
+                console.log(xhr.responseText);
+                var jarr = JSON.parse(xhr.responseText);
+                //从服务器端获得数据在网页显示 JSON.parse()服务器端数据变成json
+                insert(jarr);//insert这个名字是自己起名的
             }
         }
-
+        function insert(jarr) {
+            var alist = document.querySelector(".main2");//获取上面的class
+            jarr.forEach((v, i) => {
+                var nli = document.createElement("li");//创建一个元素
+                nli.innerHTML = `
+                <li>
+                <a href="${v.page}">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="${v.Symbol}"></use>
+                        </svg>
+                    </div>
+                    <p>${v.pageName}</p>
+                </a>
+            </li>`;
+                alist.appendChild(nli);//末尾加一个li
+            });
+        }
     </script>
 </body>
 
